@@ -20,13 +20,39 @@ The content is split into distinct sections. Most of the sections will appear in
 Contains an overview of SCSS variables defined in `/assets/scss/_variables.scss`.
 If new variables are created, please consider documenting usage in the style guide's 'variables' section.
 
-## Typography ##
+### Typography ###
+For headings, paragraphs, links, horizontal rules and anything typographical. Elements in this section should be styled in `/assets/scss/_typography.scss`.
 
-## Controls ##
+'Icons' are the exception. 
+Standard font icons appear here. The PSD may include additional icons. Please add additional icons to the icon font. Do not code them as `<img>` elements or CSS `background-image`.
 
-## Components ##
+To extend the icon font, visit [IcoMoon](https://icomoon.io/app/), click 'import icons' and upload `/assets/fonts/sw-icons.json`.
 
-## Forms ##
+Please replace the following theme files with those generated in the new icon set:
+* `/assets/fonts/sw-icons.svg`
+* `/assets/fonts/sw-icons.ttf`
+* `/assets/fonts/sw-icons.woff`
+* `/assets/fonts/sw-icons.json`
+
+And replace the icons CSS in `/assets/scss/_fonts.scss` found under `// icons `.
+
+### Controls ###
+For button elements. Please use the cascasde to style buttons, by overriding the default button styles in `/assets/scss/_controls.scss`.
+
+In SCSS this may resemble the following:
+```
+.button {
+    // default button
+    &.secondary {
+        // secondary button
+    }
+    // etc.
+}
+```
+
+### Components ###
+
+### Forms ###
 
 
 
