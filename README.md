@@ -2,7 +2,7 @@
 developer template theme
 
 ## Foundation ##
-We use Foundation v6.3 with the 'Float Grid'.
+We use Foundation v6.3 with the ['Float Grid'](https://foundation.zurb.com/sites/docs/grid.html).
 
 We need code to work correctly in Internet Explorer 9+. Please avoid using the ’Flex’ or ‘XY’ grids as they do not support Internet Explorer 9.
 
