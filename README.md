@@ -43,9 +43,11 @@ In SCSS this may resemble the following:
 ```
 .button {
     // default button
+    
     &.secondary {
         // secondary button
     }
+    
     // etc.
 }
 ```
