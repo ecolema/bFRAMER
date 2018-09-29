@@ -266,3 +266,97 @@ Specifying `type` attributes in these contexts is not necessary as HTML5 implies
 ```
 
 ## HTML Formatting Rules ##
+Use a new line for every block, list, or table element, and indent every such child element.
+
+Independent of the styling of an element (as CSS allows elements to assume a different role per `display` property), put every block, list, or table element on a new line.
+
+Also, indent them if they are child elements of a block, list, or table element.
+(If you run into issues around whitespace between list items it’s acceptable to put all li elements in one
+line. A linter is encouraged to throw a warning instead of an error.)
+
+```
+<blockquote>
+    <p>
+        <em>Space</em>, the final frontier.
+    </p>
+</blockquote>
+<ul>
+    <li>Moe</li>
+    <li>Larry</li>
+    <li>Curly</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Income</th>
+            <th scope="col">Taxes</th>
+        </tr>
+    <tbody>
+        <tr>
+            <td>£ 5.00</td>
+            <td>£ 4.50</td>
+        </tr>
+</table>
+```
+### HTML Quotation Marks ###
+When quoting attributes values, use double quotation marks.
+Use double `""` rather than single quotation marks `''` around attribute values.
+```
+<!-- Not recommended -->
+<a class='maia-button maia-button-secondary'>Sign in</a>
+
+<!-- Recommended -->
+<a class="maia-button maia-button-secondary">Sign in</a>
+```
+
+## CSS Style Rules ##
+
+### CSSValidity ###
+Use valid CSS where possible.
+Unless dealing with CSS validator bugs or requiring proprietary syntax, use valid CSS code.
+Use tools such as the W3C CSS validator to test.
+Using valid CSS is a measurable baseline quality attribute that allows spotting CSS code that may not have any effect and can be removed, and that ensures proper CSS usage.
+
+### ID and Class Naming ###
+Use meaningful or generic ID and class names.
+Instead of presentational or cryptic names, always use ID and class names that reflect the purpose of the element in question, or that are otherwise generic.
+Names that are specific and reflect the purpose of the element should be preferred as these are most understandable and the least likely to change.
+Generic names are simply a fallback for elements that have no particular or no meaning different from their siblings. They are typically needed as 'helpers'.
+Using functional or generic names reduces the probability of unnecessary document or template changes.
+
+```
+/* Not recommended: meaningless */
+.yee-1901 {}
+
+/* Not recommended: presentational */
+.button-green {}
+.clear {}
+
+/* Recommended: specific */
+.gallery {}
+.login {}
+.video {}
+
+/* Recommended: generic */
+.aux {}
+.alt {}
+```
+
+### ID and Class Name Style ###
+* Please avoild using IDs as CSS selectors*
+Use ID and class names that are as short as possible but as long as necessary.
+
+Try to convey what an ID or class is about while being as brief as possible.
+
+Using ID and class names this way contributes to acceptable levels of understandability and code
+efficiency.
+
+```
+/* Not recommended */
+.navigation {}
+.atr {}
+
+/* Recommended */
+.nav {}
+.author {}
+```
