@@ -13,7 +13,7 @@ In the case of a standard style guide, the purpose is to maintain brand cohesive
 
 The living style guide can be viewed by visiting `/styleguide`.
 
-### Style guide sections ###
+## Style guide sections ##
 The content is split into distinct sections. Most of the sections will appear in the PSD.  
 
 ### Variables ###
