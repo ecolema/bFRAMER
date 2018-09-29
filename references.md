@@ -9,3 +9,4 @@
 * jQuery Fancybox - https://www.fancyapps.com/fancybox/3/docs/
 
 * Google Fonts - https://fonts.google.com/
+* Icomoon App - https://icomoon.io/app/
