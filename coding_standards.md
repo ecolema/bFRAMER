@@ -360,3 +360,259 @@ efficiency.
 .nav {}
 .author {}
 ```
+
+### Type Selectors ###
+Avoid qualifying ID and class names with type selectors.
+
+Unless necessary (for example with helper classes), do not use element names in conjunction with IDs or classes.
+
+Avoiding unnecessary ancestor selectors is useful for performance reasons.
+
+```
+/* Not recommended */
+ul.example {}
+div.error {}
+
+/* Recommended */
+.example {}
+.error {}
+```
+
+### Shorthand Properties ###
+Use shorthand properties where possible.
+
+CSS offers a variety of shorthand properties (like `font`) that should be used whenever possible, even in cases where only one value is explicitly set.
+Using shorthand properties is useful for code efficiency and understandability.
+
+```
+/* Not recommended */
+border-top-style: none;
+font-family: palatino, georgia, serif;
+font-size: 100%;
+line-height: 1.6;
+padding-bottom: 2em;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 0;
+
+/* Recommended */
+border-top: 0;
+font: 100%/1.6 palatino, georgia, serif;
+padding: 0 1em 2em;
+```
+
+### 0 and Units ###
+Omit unit specification after `0` values.
+Do not use units after `0` values unless they are required.
+```
+margin: 0; 
+padding: 0;
+```
+### Leading 0s ###
+Omit leading `0`s in values.
+Do not use put 0s in front of values or lengths between `-1` and `1`.
+```
+    font-size: .8em;
+```
+
+### Hexadecimal Notation ###
+Use 3 character hexadecimal notation where possible.
+For color values that permit it, 3 character hexadecimal notation is shorter and more succinct.
+```
+/* Not recommended */
+color: #eebbcc;
+
+/* Recommended */
+color: #ebc;
+```
+
+### Prefixes ###
+Prefix selectors with an application-specific prefix (optional).
+In large projects as well as for code that gets embedded in other projects or on external sites use prefixes (as namespaces) for ID and class names. Use short, unique identifiers followed by a dash.
+Using namespaces helps preventing naming conflicts and can make maintenance easier, for example in search and replace operations.
+```
+.adw-help {} /* AdWords */
+.maia-note {} /* Maia */
+```
+
+### ID and Class Name Delimiters ###
+Separate words in ID and class names by a hyphen.
+Do not concatenate words and abbreviations in selectors by any characters (including none at all) other than hyphens, in order to improve understanding and scannability.
+```
+/* Not recommended: does not separate the words “demo” and “image” */
+.demoimage {}
+
+/* Not recommended: uses underscore instead of hyphen */
+.error_status {}
+
+/* Recommended */
+.video-id {}
+.ads-sample {}
+```
+### Hacks ###
+Avoid user agent detection as well as CSS “hacks”—try a different approach first.
+
+It’s tempting to address styling differences over user agent detection or special CSS filters workarounds, and hacks. Both approaches should be considered last resort in order to achieve and maintain an efficient and manageable code base. Put another way, giving detection and hacks a free pass will hurt projects in the long run as projects tend to take the way of least resistance. That is,
+allowing and making it easy to use detection and hacks means using detection and hacks more frequently—and more frequently is too frequently.
+
+## CSS Formatting Rules ##
+
+### Declaration Order ###
+Alphabetize declarations.
+
+Put declarations in alphabetical order in order to achieve consistent code in a way that is easy to remember and maintain.
+
+Ignore vendor-specific prefixes for sorting purposes. However, multiple vendor-specific prefixes for a certain CSS property should be kept sorted (e.g. -moz prefix comes before -webkit).
+
+```
+background: fuchsia;
+border: 1px solid;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+color: black;
+text-align: center;
+text-indent: 2em;
+```
+
+### Block Content Indentation ###
+*Indent all block content.*
+Indent all block content, that is rules within rules as well as declarations, so to reflect hierarchy and improve understanding.
+```
+@media screen, projection {
+    html {
+        background: #fff;
+        color: #444;
+    }
+}
+```
+
+### Declaration Stops ###
+Use a semicolon after every declaration.
+End every declaration with a semicolon for consistency and extensibility reasons.
+```
+/* Not recommended */
+.test {
+    display: block;
+    height: 100px
+}
+
+/* Recommended */
+.test {
+    display: block;
+    height: 100px;
+}
+```
+
+### Property Name Stops ###
+Use a space after a property name’s colon.
+
+Always use a single space between property and value (but no space between property and colon) for consistency reasons.
+```
+/* Not recommended */
+h3 {
+    font-weight:bold;
+}
+
+/* Recommended */
+h3 {
+    font-weight: bold;
+}
+```
+
+### Declaration Block Separation ###
+Use a space between the last selector and the declaration block.
+Always use a single space between the last selector and the opening brace that begins the declaration block.
+
+The opening brace should be on the same line as the last selector in a given rule.
+```
+/* Not recommended: missing space */
+.video{
+    margin-top: 1em;
+}
+
+/* Not recommended: unnecessary line break */
+.video
+{
+    margin-top: 1em;
+}
+
+/* Recommended */
+.video {
+    margin-top: 1em;
+}
+```
+
+### Selector and Declaration Separation ###
+Separate selectors and declarations by new lines.
+Always start a new line for each selector and declaration.
+
+```
+/* Not recommended */
+a:focus, a:active {
+    position: relative; top: 1px;
+}
+
+/* Recommended */
+h1,
+h2,
+h3 {
+    font-weight: normal;
+    line-height: 1.2;
+}
+```
+ ### Rule Separation ###
+Separate rules by new lines.
+Always put a blank line (two line breaks) between rules.
+```
+html {
+    background: #fff;
+}
+
+body {
+    margin: auto;
+    width: 50%;
+}
+```
+### CSSQuotation Marks ###
+Use single quotation marks for attribute selectors and property values.
+Use single ('') rather than double ("") quotation marks for attribute selectors or property values. Do not use quotation marks in URI values (url()).
+
+Exception: If you do need to use the @charset rule, use double quotation marks—single quotation marks are not permitted.
+```
+/* Not recommended */
+@import url("//www.google.com/css/maia.css");
+
+html {
+    font-family: "open sans", arial, sans-serif;
+}
+
+/* Recommended */
+@import url(//www.google.com/css/maia.css);
+
+html {
+    font-family: 'open sans', arial, sans-serif;
+}
+```
+
+## CSS Meta Rules ##
+### Section Comments ###
+Group sections by a section comment (optional).
+If possible, group style sheet sections together by using comments. Separate sections with new lines.
+```
+/* Header */
+.adw-header {}
+
+/* Footer */
+.adw-footer {}
+
+/* Gallery */
+.adw-gallery {}
+```
+
+## In Summary ##
+If you’re editing code, take a few minutes to look at the code around you and determine its style. If they use spaces around all their arithmetic operators, you should too. If their comments have little boxes of hash marks around them, make your comments have little boxes of hash marks around them too.
+
+The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you’re saying rather than on how you’re saying it.
+
+If code you add to a file looks drastically different from the existing code around it, it throws readers out of their rhythm when they go to read it. Avoid this.
