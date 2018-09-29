@@ -40,7 +40,7 @@ And replace the icons CSS in `/assets/scss/_fonts.scss` found under `// icons `.
 For button elements. Please use the cascasde to style buttons, by overriding the default button styles in `/assets/scss/_controls.scss`.
 
 In SCSS this may resemble the following:
-```
+```scss
 .button {
     // default button
     
