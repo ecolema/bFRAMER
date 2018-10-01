@@ -149,11 +149,21 @@ Specific styling for delivery rates where the theme setting 'Delivery rate radio
 ### Basket voucher ###
 styled in `/assets/scss/_components_basket.scss`.
 
-Using Foundation's [Toggler component](https://foundation.zurb.com/sites/docs/toggler.html) to toggle the basket voucher form.
+Using [Foundation's Toggler component](https://foundation.zurb.com/sites/docs/toggler.html) to toggle the basket voucher form.
 
 ### Currency dropdown ###
+Displayed in the site header, used for selecting a currency and shipping region.
+
+Uses [Foundation's Dropdown componenet](https://foundation.zurb.com/sites/docs/dropdown.html).
+
+The flag images are displayed using a sprite sheet `/assets/images/flags[size].png`. By default flag images are displayed with `flags32.png` (where each flag is 32 x 32 pixels).
+
+Render 16 x 16 flag images by altering `$flags-size` in `/assets/scss/_flags.scss`. 
 
 ### Account dropdown ###
+Links are displayed reletive to the user's logged in status. 
+
+Uses [Foundation's Dropdown componenet](https://foundation.zurb.com/sites/docs/dropdown.html).
 
 ### Footer link lists ###
 styled in `/assets/scss/_components_footer.scss`.
@@ -161,11 +171,13 @@ styled in `/assets/scss/_components_footer.scss`.
 Links lists are rendered with the macro `link_list`. 
 
 ### Footer newsletter ###
-styled in `/assets/scss/_components_footer.scss`.
+Styled in `/assets/scss/_components_footer.scss`.
 
 ### Company contact information ###
+Renders basic company contact information, displayed in the contact view (/contact-us).
 
 ### Catgeory Menu ###
+
 
 ### Breadcrumb ###
 
