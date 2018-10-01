@@ -61,6 +61,15 @@ Textual form elements adopt the following structure for increased accessibility:
 ````
 > Please note the `<label>` element is used as a container. Label text is selected with the className `.field-label`.
 
+#### Validation errors ####
+Form validation error mesaages will appear after the label text `<span class="field-label"></span>`.
+
+The className `.validation-error` is applied to the input and error message itself. To differentuial, the selector for the message text only is `span.validation-error`.
+
+### Checkbox and Radio Elements ###
+Default styling for checkbox and radio buttons are customised with a CSS only solution. Both are controled in `_forms.scss`.
+
+
 ### Contact Form ###
 The contact form consists of form components and typically appears on the `/contact-us` page.
 
@@ -72,8 +81,10 @@ For specific UI components. This is where majority of theme styles are placed. U
 Elements in this section are styled in `/assets/scss/_components*.scss`.
 
 ### Announcement Bar ###
+Closable message block that appears above the site header.
 
 ### Homepage banner carousel ###
+
 
 ### Generic carousel ###
 
