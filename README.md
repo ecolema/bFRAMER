@@ -14,7 +14,7 @@ Contains an overview of SCSS variables defined in `/assets/scss/_variables.scss`
 If new variables are created, please consider documenting usage in the style guide's 'variables' section.
 
 ## Typography ##
-For headings, paragraphs, links, horizontal rules and anything typographical. Elements in this section should be styled in `/assets/scss/_typography.scss`.
+For headings, paragraphs, links, horizontal rules and anything typographical. Elements in this section are styled in `/assets/scss/_typography.scss`.
 
 'Icons' are the exception. 
 Standard font icons appear here. The PSD may include additional icons. Please add additional icons to the icon font. Do not code them as `<img>` elements or CSS `background-image`.
@@ -46,7 +46,7 @@ In SCSS this may resemble the following:
 ```
 
 ## Forms ##
-Something about forms
+Elements in this section are styled in `/assets/scss/_forms.scss`.
 
 ### Form components ###
 
@@ -54,7 +54,7 @@ Something about forms
 
 
 ## Components ##
-Something about components
+Elements in this section are styled in `/assets/scss/_components*.scss`.
 
 ### Announcement Bar ###
 
