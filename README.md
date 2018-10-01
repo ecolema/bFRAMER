@@ -177,17 +177,22 @@ Styled in `/assets/scss/_components_footer.scss`.
 Renders basic company contact information, displayed in the contact view (/contact-us).
 
 ### Catgeory Menu ###
-
+Renders a responsive caetory menu using [Foundation's Responsive Menu](https://foundation.zurb.com/sites/docs/responsive-navigation.html#responsive-menu).
 
 ### Breadcrumb ###
+Uses [Foundation's Breadcrumbs component](https://foundation.zurb.com/sites/docs/breadcrumbs.html).
 
 ### Pagination ###
+Uses [Foundation's Pagination component](https://foundation.zurb.com/sites/docs/pagination.html).
 
 ### Sidebar menus ###
+Uses [Foundation's Accordion Menu component](https://foundation.zurb.com/sites/docs/accordion-menu.html), side bar menus are navigation elements displayed in a side bar column.
 
-### Collection sort form ###
-
-### Sidebar menus ###
+Sidebar menus include:
+* Sidebar category menu - for categories
+* Content pages menu - Rending page links stored in the sidebar links list `list_sidebar`
+* Filter menu - Uses [Foundation's Accordion component](https://foundation.zurb.com/sites/docs/accordion.html) to display filter groups
+* Blog category/archive menus - for blog navigation
 
 ### Collection sort form ###
 
