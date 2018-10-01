@@ -83,34 +83,54 @@ Elements in this section are styled in `/assets/scss/_components*.scss`.
 ### Announcement Bar ###
 Closable message block that appears above the site header.
 
-### Homepage banner carousel ###
+### Home page banner carousel ###
 Displays an array of gallery images in a collection displayed as an image carousel using [slick](http://kenwheeler.github.io/slick/).
 
 Becuase image slides on mobile phone displays ofter require seperate art direction, the banners are split into `large` and `small`. By default `gallery_home_mobile` banners are displayed for the `small` breakpoint only.
 
 ### Generic carousel ###
+Generic image slider styles include positioning and display of previous/next arrows for all elements which use the slick slider plugin.
 
+Examples of generic sliders include Home page 'featured products' and product page 'related products'.
+
+The className `.product-slider` is used to display a collection as a slider.
 
 ### Product thumbnails ###
+styled in `/assets/scss/_components_product.scss`.
 
 ### Star raiting ###
+Combines a twig `for` loop with the macro `sw_icon` to output star icons to represent a raiting.
 
 ### Product labels ###
+Product labels denote whether a product is 'new' or included in a volume discount such as '3 for 2' or '2 for 1'.
+
+Combined [Foundation's label element](https://foundation.zurb.com/sites/docs/label.html) with the following classes:
+* `.two-for-one`
+* `.three-for-two`
+* `.new`
 
 ### Modal dialogs ###
+Modal dialogs use Foundaton's reveal componenet.
 
 ### Off canvas basket ###
 The off canvas basket is styled in `/assets/scss/_components_basket_offcanvas.scss`.
 
+`offCanvasBasket` uses [Foundation's Reveal component](https://foundation.zurb.com/sites/docs/reveal.html).
+
 ### Basket item ###
+styled in `/assets/scss/_components_basket.scss`.
 
 ### Basket totals ###
+styled in `/assets/scss/_components_basket.scss`.
 
 ### Basket rewards ###
+styled in `/assets/scss/_components_basket.scss`.
 
 ### Delivery rate radio buttons ###
+styled in `/assets/scss/_components_basket.scss`.
 
 ### Basket voucher ###
+styled in `/assets/scss/_components_basket.scss`.
 
 ### Currency dropdown ###
 
