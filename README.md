@@ -57,8 +57,6 @@ Something about forms
 
 #### Form components ####
 
-#### Basket voucher ####
-
 #### Contact Form ####
 
 
@@ -88,6 +86,8 @@ Something about components
 #### Basket rewards ####
 
 #### Delivery rate radio buttons ####
+
+#### Basket voucher ####
 
 #### Currency dropdown ####
 
