@@ -66,7 +66,7 @@ Form validation error mesaages will appear after the label text `<span class="fi
 
 The className `.validation-error` is applied to the input and error message itself. To differentuial, the selector for the message text only is `span.validation-error`.
 
-### Checkbox and Radio Elements ###
+#### Checkbox and Radio Elements ####
 Default styling for checkbox and radio buttons are customised with a CSS only solution. Both are controled in `_forms.scss`.
 
 
@@ -84,9 +84,12 @@ Elements in this section are styled in `/assets/scss/_components*.scss`.
 Closable message block that appears above the site header.
 
 ### Homepage banner carousel ###
+Displays an array of gallery images in a collection displayed as an image carousel using [slick](http://kenwheeler.github.io/slick/).
 
+Becuase image slides on mobile phone displays ofter require seperate art direction, the banners are split into `large` and `small`. By default `gallery_home_mobile` banners are displayed for the `small` breakpoint only.
 
 ### Generic carousel ###
+
 
 ### Product thumbnails ###
 
