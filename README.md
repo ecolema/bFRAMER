@@ -52,7 +52,6 @@ Elements in this section are styled in `/assets/scss/_forms.scss`.
 
 ### Contact Form ###
 
-
 ## Components ##
 Elements in this section are styled in `/assets/scss/_components*.scss`.
 
@@ -71,6 +70,7 @@ Elements in this section are styled in `/assets/scss/_components*.scss`.
 ### Modal dialogs ###
 
 ### Off canvas basket ###
+The off canvas basket is styled in `/assets/scss/_components_basket_offcanvas.scss`.
 
 ### Basket item ###
 
