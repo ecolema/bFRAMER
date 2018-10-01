@@ -66,7 +66,7 @@ Form validation error mesaages will appear after the label text `<span class="fi
 
 The className `.validation-error` is applied to the input and error message itself. To differentuial, the selector for the message text only is `span.validation-error`.
 
-#### Checkbox and Radio Elements ####
+#### Checkbox and Radio Elements ####
 Default styling for checkbox and radio buttons are customised with a CSS only solution. Both are controled in `_forms.scss`.
 
 
