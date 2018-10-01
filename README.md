@@ -52,16 +52,19 @@ In SCSS this may resemble the following:
 Elements in this section are styled in `/assets/scss/_forms.scss`.
 
 ### Form components ###
-Textual form elements generally adopt the following structure:
+Textual form elements adopt the following structure for increased accessibility:
 ```html
 <label>
     <span class="field-label">Input Label</span>
     <input type="text">
 </label>
 ````
-
+> Please note the `<label>` element is used as a container. Label text is selected with the className `.field-label`.
 
 ### Contact Form ###
+The contact form consists of form components and typically appears on the `/contact-us` page.
+
+Please add custom styles for the product form in `/assets/scss/_forms.scss` too.
 
 ## Components ##
 For specific UI components. This is where majority of theme styles are placed. UI components are often composed of Objects and Components
