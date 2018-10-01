@@ -195,15 +195,24 @@ Sidebar menus include:
 * Blog category/archive menus - for blog navigation
 
 ### Collection sort form ###
+Renders navigation elements related to a 'collection'. The sort for comprises the list/grid view buttons and a 'sort by' `<select>` drop down.
 
 ### Product page prices ###
 styled in `/assets/scss/_components_product.scss`.
 
+Display of product price, sale price and RRP shown on the product page.
+
 ### Variant buttons ###
 styled in `/assets/scss/_components_product.scss`.
 
+When enabled product options are presented as buttons in place of `<select>` drop downs.
+
+Each option is a `radio` button contained by `label.rectangle`. Where options are configured as colours, the label element includes an additional className, `.color`
+
 ### Product buy buttons ###
 styled in `/assets/scss/_components_product.scss`.
+
+The quantity box, add to basket button and wish list buttons displayed on the product page.
 
 ### Product page info ###
 styled in `/assets/scss/_components_product.scss`.
@@ -212,14 +221,19 @@ styled in `/assets/scss/_components_product.scss`.
 styled in `/assets/scss/_components_product.scss`.
 
 ### Product tiles ###
+Product boxes displayed in product collections. By default product boxes use Foundation's Card component, contain a general ClassName `.item-box` and a more specific className `.product-box`. 
 
 ### Category tiles ###
+Category boxes displayed in category collections. By default category boxes use Foundation's Card component, contain a general ClassName `.item-box` and a more specific className `.category-box`. 
 
 ### Article tiles ###
+Display individual blog posts.
 
 ### Recent product tiles ###
+Display recently viewed products, contain a general ClassName `.item-box` and a more specific className `.recent-box`.
 
 ### Video tiles ###
+
 
 ### Gallery tiles ###
 
