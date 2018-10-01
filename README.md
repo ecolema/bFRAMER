@@ -52,6 +52,14 @@ In SCSS this may resemble the following:
 Elements in this section are styled in `/assets/scss/_forms.scss`.
 
 ### Form components ###
+Textual form elements generally adopt the following structure:
+```html
+<label>
+    <span class="field-label">Input Label</span>
+    <input type="text">
+</label>
+````
+
 
 ### Contact Form ###
 
