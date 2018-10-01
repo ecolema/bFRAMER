@@ -16,10 +16,13 @@ If new variables are created, please consider documenting usage in the style gui
 ## Typography ##
 For headings, paragraphs, links, horizontal rules and anything typographical. Elements in this section are styled in `/assets/scss/_typography.scss`.
 
-'Icons' are the exception. 
-Standard font icons appear here. The PSD may include additional icons. Please add additional icons to the icon font. Do not code them as `<img>` elements or CSS `background-image`.
+### Icons ###
+'Icons' are the exception. Standard font icons appear here. Additional icons can be added to the icon font. Do not code them as `<img>` elements or CSS `background-image`.
 
-To extend the icon font, visit [IcoMoon](https://icomoon.io/app/), click 'import icons' and upload `/assets/fonts/sw-icons.json`.
+#### Extend Icon Font ####
+Visit [IcoMoon](https://icomoon.io/app/), click 'import icons' and upload `/assets/fonts/sw-icons.json`.
+
+Add new icon gylphs as reqired and generate a new font set.
 
 Please replace the following theme files with those generated in the new icon set:
 * `/assets/fonts/sw-icons.svg`
@@ -27,7 +30,7 @@ Please replace the following theme files with those generated in the new icon se
 * `/assets/fonts/sw-icons.woff`
 * `/assets/fonts/sw-icons.json`
 
-And replace the icons CSS in `/assets/scss/_fonts.scss` found under `// icons `.
+Replace the icons CSS in `/assets/scss/_fonts.scss` found under `// icons `.
 
 ## Controls ##
 For button elements. Please use the cascasde to style buttons, by overriding the default button styles in `/assets/scss/_controls.scss`.
@@ -53,6 +56,8 @@ Elements in this section are styled in `/assets/scss/_forms.scss`.
 ### Contact Form ###
 
 ## Components ##
+For specific UI components. This is where majority of theme styles are placed. UI components are often composed of Objects and Components
+
 Elements in this section are styled in `/assets/scss/_components*.scss`.
 
 ### Announcement Bar ###
