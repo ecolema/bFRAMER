@@ -69,6 +69,10 @@ The className `.validation-error` is applied to the input and error message itse
 #### Checkbox and Radio Elements ####
 Default styling for checkbox and radio buttons are customised with a CSS only solution. Both are controled in `_forms.scss`.
 
+Modal | CSS selector
+--- | ---
+Age Verification | `verify-age-modal`
+newsletter | `newsletter-modal`
 
 ### Contact Form ###
 The contact form consists of form components and typically appears on the `/contact-us` page.
@@ -110,12 +114,17 @@ Combined [Foundation's label element](https://foundation.zurb.com/sites/docs/lab
 * `.new`
 
 ### Modal dialogs ###
-Modal dialogs use Foundaton's reveal componenet.
+Modal dialogs use [Foundation's Reveal component](https://foundation.zurb.com/sites/docs/reveal.html).
+
+The theme includes 2 default modals. The markup can be modified in `/views/partials/global_modals.twig`:
+
+
+
 
 ### Off canvas basket ###
 The off canvas basket is styled in `/assets/scss/_components_basket_offcanvas.scss`.
 
-`offCanvasBasket` uses [Foundation's Reveal component](https://foundation.zurb.com/sites/docs/reveal.html).
+`offCanvasBasket` uses [Foundation's Off-canvas component](https://foundation.zurb.com/sites/docs/off-canvas.html).
 
 ### Basket item ###
 styled in `/assets/scss/_components_basket.scss`.
@@ -137,8 +146,10 @@ styled in `/assets/scss/_components_basket.scss`.
 ### Account dropdown ###
 
 ### Footer link lists ###
+styled in `/assets/scss/_components_footer.scss`.
 
 ### Footer newsletter ###
+styled in `/assets/scss/_components_footer.scss`.
 
 ### Company contact information ###
 
@@ -157,14 +168,19 @@ styled in `/assets/scss/_components_basket.scss`.
 ### Collection sort form ###
 
 ### Product page prices ###
+styled in `/assets/scss/_components_product.scss`.
 
 ### Variant buttons ###
+styled in `/assets/scss/_components_product.scss`.
 
 ### Product buy buttons ###
+styled in `/assets/scss/_components_product.scss`.
 
 ### Product page info ###
+styled in `/assets/scss/_components_product.scss`.
 
 ### Product description tabs ###
+styled in `/assets/scss/_components_product.scss`.
 
 ### Product tiles ###
 
