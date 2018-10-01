@@ -71,8 +71,8 @@ Default styling for checkbox and radio buttons are customised with a CSS only so
 
 Modal | CSS selector
 --- | ---
-Age Verification | `verify-age-modal`
-newsletter | `newsletter-modal`
+Age Verification | `.verify-age-modal`
+newsletter | `.newsletter-modal`
 
 ### Contact Form ###
 The contact form consists of form components and typically appears on the `/contact-us` page.
@@ -80,9 +80,9 @@ The contact form consists of form components and typically appears on the `/cont
 Please add custom styles for the product form in `/assets/scss/_forms.scss` too.
 
 ## Components ##
-For specific UI components. This is where majority of theme styles are placed. UI components are often composed of Objects and Components
+For specific UI components. This is where majority of theme styles are placed. UI components are often composed of Objects and Components.
 
-Elements in this section are styled in `/assets/scss/_components*.scss`.
+Elements in this section are styled in SCSS component files: `/assets/scss/_components*.scss`. Unless specified, styles should be placed in `/assets/scss/_components.scss`
 
 ### Announcement Bar ###
 Closable message block that appears above the site header.
@@ -118,9 +118,6 @@ Modal dialogs use [Foundation's Reveal component](https://foundation.zurb.com/si
 
 The theme includes 2 default modals. The markup can be modified in `/views/partials/global_modals.twig`:
 
-
-
-
 ### Off canvas basket ###
 The off canvas basket is styled in `/assets/scss/_components_basket_offcanvas.scss`.
 
@@ -129,17 +126,30 @@ The off canvas basket is styled in `/assets/scss/_components_basket_offcanvas.sc
 ### Basket item ###
 styled in `/assets/scss/_components_basket.scss`.
 
+A basket item represents a table row of `basket-table`, displayed on  the `/checkout/basket` view.
+
 ### Basket totals ###
 styled in `/assets/scss/_components_basket.scss`.
+
+The table `basket-totals` appears on the the `/checkout/basket` view and displays totals related to the items in `basket-table`.
 
 ### Basket rewards ###
 styled in `/assets/scss/_components_basket.scss`.
 
+`.basket-info-rewards` is displayed in 3 different states:
+* 'Can convert' - points can be redeeemed against basket items
+* 'Converted' - points have been redeemed aginst basket items
+* 'Cannot convert - points will be earned against basket items but cannot be converted
+
 ### Delivery rate radio buttons ###
 styled in `/assets/scss/_components_basket.scss`.
 
+Specific styling for delivery rates where the theme setting 'Delivery rate radio buttons' is enabled.
+
 ### Basket voucher ###
 styled in `/assets/scss/_components_basket.scss`.
+
+Using Foundation's [Toggler component](https://foundation.zurb.com/sites/docs/toggler.html) to toggle the basket voucher form.
 
 ### Currency dropdown ###
 
@@ -147,6 +157,8 @@ styled in `/assets/scss/_components_basket.scss`.
 
 ### Footer link lists ###
 styled in `/assets/scss/_components_footer.scss`.
+
+Links lists are rendered with the macro `link_list`. 
 
 ### Footer newsletter ###
 styled in `/assets/scss/_components_footer.scss`.
