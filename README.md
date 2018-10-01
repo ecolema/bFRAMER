@@ -1,26 +1,19 @@
-# bFRAMER
-developer template theme
-
-## Foundation ##
-We use Foundation v6.3 with the ['Float Grid'](https://foundation.zurb.com/sites/docs/grid.html).
-
-Becuase support for Internet Explorer 9+ is required, please avoid using the ’Flex’ or ‘XY’ grids.
-
-## Style guide ##
+# Style guide #
 For code efficiency and UI consistency we use a living style guide. The living style guide provides a set of standards for the use and creation of styles.
 
 In the case of a standard style guide, the purpose is to maintain brand cohesiveness and prevent the misuse of graphics and design elements. In the same way, a living stye guide is used to maintain code consistency and guide implementation.
 
 The living style guide can be viewed by visiting `/styleguide`.
 
-## Style guide sections ##
-The content is split into distinct sections. Most of the sections will appear in the PSD.  
+> We use Foundation v6.3 with the ['Float Grid'](https://foundation.zurb.com/sites/docs/grid.html). ’Flex’ and ‘XY’ grids are not used becuase they are not supported by Internet Explorer 9.
 
-### Variables ###
+Style guide content is split into distinct sections.  
+
+## Variables ##
 Contains an overview of SCSS variables defined in `/assets/scss/_variables.scss`.
 If new variables are created, please consider documenting usage in the style guide's 'variables' section.
 
-### Typography ###
+## Typography ##
 For headings, paragraphs, links, horizontal rules and anything typographical. Elements in this section should be styled in `/assets/scss/_typography.scss`.
 
 'Icons' are the exception. 
@@ -36,7 +29,7 @@ Please replace the following theme files with those generated in the new icon se
 
 And replace the icons CSS in `/assets/scss/_fonts.scss` found under `// icons `.
 
-### Controls ###
+## Controls ##
 For button elements. Please use the cascasde to style buttons, by overriding the default button styles in `/assets/scss/_controls.scss`.
 
 In SCSS this may resemble the following:
@@ -52,92 +45,92 @@ In SCSS this may resemble the following:
 }
 ```
 
-### Forms ###
+## Forms ##
 Something about forms
 
-#### Form components ####
+### Form components ###
 
-#### Contact Form ####
+### Contact Form ###
 
 
-### Components ###
+## Components ##
 Something about components
 
-#### Announcement Bar ####
+### Announcement Bar ###
 
-#### Homepage banner carousel ####
+### Homepage banner carousel ###
 
-#### Generic carousel ####
+### Generic carousel ###
 
-#### Product thumbnails ####
+### Product thumbnails ###
 
-#### Star raiting ####
+### Star raiting ###
 
-#### Product labels ####
+### Product labels ###
 
-#### Modal dialogs ####
+### Modal dialogs ###
 
-#### Off canvas basket ####
+### Off canvas basket ###
 
-#### Basket item ####
+### Basket item ###
 
-#### Basket totals ####
+### Basket totals ###
 
-#### Basket rewards ####
+### Basket rewards ###
 
-#### Delivery rate radio buttons ####
+### Delivery rate radio buttons ###
 
-#### Basket voucher ####
+### Basket voucher ###
 
-#### Currency dropdown ####
+### Currency dropdown ###
 
-#### Account dropdown ####
+### Account dropdown ###
 
-#### Footer link lists ####
+### Footer link lists ###
 
-#### Footer newsletter ####
+### Footer newsletter ###
 
-#### Company contact information ####
+### Company contact information ###
 
-#### Catgeory Menu ####
+### Catgeory Menu ###
 
-#### Breadcrumb ####
+### Breadcrumb ###
 
-#### Pagination ####
+### Pagination ###
 
-#### Sidebar menus ####
+### Sidebar menus ###
 
-#### Collection sort form ####
+### Collection sort form ###
 
-#### Sidebar menus ####
+### Sidebar menus ###
 
-#### Collection sort form ####
+### Collection sort form ###
 
-#### Product page prices ####
+### Product page prices ###
 
-#### Variant buttons ####
+### Variant buttons ###
 
-#### Product buy buttons ####
+### Product buy buttons ###
 
-#### Product page info ####
+### Product page info ###
 
-#### Product description tabs ####
+### Product description tabs ###
 
-#### Product tiles ####
+### Product tiles ###
 
-#### Category tiles ####
+### Category tiles ###
 
-#### Article tiles ####
+### Article tiles ###
 
-#### Recent product tiles ####
+### Recent product tiles ###
 
-#### Video tiles ####
+### Video tiles ###
 
-#### Gallery tiles ####
+### Gallery tiles ###
 
-#### Gallery image tiles ####
+### Gallery image tiles ###
 
-#### Stockiest tiles ####
+### Stockiest tiles ###
 
 
 
