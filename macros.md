@@ -81,14 +81,14 @@ Render a `<button>`
 ```
 argument | description
 --- | ---
-`name` | bar
-`value` | value
-`text` | text
-`class` | class
-`include_honeypot` | honeypot
-`type` | type
-`icon` | icon
-`extra` | extra
+`name` | create/populate `name=""` attribute as string
+`value` | create/populate `value=""` attribute as string
+`text` | button text
+`class` | create/populate `class=""` attribute as string
+`include_honeypot` | see `html.honeypot`
+`type` | populates `type=""` attribute. Default is `submit`
+`icon` | see `theme.icon`
+`extra` | pass in raw HTML
 
 **usage:**
 ```
@@ -112,12 +112,12 @@ Render a `<select>`
 ```
 argument | description
 --- | ---
-`name` | name
-`value` | value
-`selected` | selected
-`class` | class
-`first_option` | first option
-`extra` | extra
+`name` | create/populate `name=""` attribute as string
+`values` | array of values to render as `<option value="">`
+`selected` | marks matched `option` value as `selected`
+`class` | create/populate `class=""` attribute as string
+`first_option` | creates a valueless option as string. e.g. `'please select..'` 
+`extra` | pass in raw HTML
 
 **usage:**
 ```twig
@@ -138,14 +138,14 @@ Render a number toggle field
 ```
 argument | description
 --- | ---
-`name` | name
-`value` | value
-`class` | class
-`placeholder` | placeholder
-`type` | type
-`extra` | extra
-`minus_text` | minus text
-`plus_text` | plus text
+`name` | create/populate `name=""` attribute as string
+`value` | create/populate `value=""` attribute as string
+`class` | create/populate `class=""` attribute as string
+`placeholder` | create/populate `placeholder=""` attribute as string
+`type` | create/populate `type=""` attribute as string. Default is `text
+`extra` | pass in raw HTML
+`minus_text` | string. Default is `'-'`
+`plus_text` | string. Default is `'+'`
 
 **usage:**
 ```twig
@@ -168,12 +168,12 @@ Render an `<img>`
 ```
 argument | description
 --- | ---
-`src` | src
-`alt` | alt
-`class` | class
-`extra` | extra
-`lazy` | lazy
-`no_image` | no image
+`src` | populatea `src=""` attribute as string
+`alt` | populates `alt=""` attribute as string
+`class` | create/populate `class=""` attribute as string (optional)
+`extra` | pass in raw HTML
+`lazy` | set as `true` to lazy load the image (optional)
+`no_image` | set as `true` to render a custom image if `src` fails to return an image
 
 **usage:**
 ```twig
@@ -201,13 +201,14 @@ Renders a multi level caetgory list
 ```
 argument | description
 --- | ---
-`catID` | categhory ID
-`level` | level
-`limit` | limit
+`catID` | Source category ID
+`level` | integer to signal start level (optional) 
+`limit` | integer for how many sub levels to output. Set as `0` for no limit.
 
 **usage:**
 ```twig
-{{ html.script }}
+{% set root_cat = 40468 %}
+{{ theme.recursive_category(root_cat, '', '')
 ```
 
 ## Theme macros ##
@@ -219,7 +220,7 @@ Renders a text snippet
 ```twig
 {% macro text_snippet(name, raw) %}
     {% if raw %}
-	    {{ global.theme.settings['text_' ~ name] }}
+		{{ global.theme.settings['text_' ~ name] }}
     {% else %}
         {{ global.theme.settings['text_' ~ name]|raw }}
     {% endif %}
