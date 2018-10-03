@@ -125,16 +125,27 @@ argument | description
 ```
 
 ### html.number_toggle ###
-What does the macro do?
+Render a number toggle field
 
 ```twig
-{% macro %}
-
+{% macro number_toggle(name, value, class, placeholder, type, extra, minus_text, plus_text) %}
+    <div class="number-toggle">
+        <button class="toggle-down">{{ minus_text|default('-') }}</button>
+        <input type="{{ type|default('text') }}"{% if name %} name="{{ name }}"{% endif %}{% if value %} value="{{ value }}"{% endif %}{% if class %} class="{{ class }}"{% endif %}{% if placeholder %} placeholder="{{ placeholder }}"{% endif %}{% if extra %} {{ extra|raw }}{% endif %}>
+        <button class="toggle-up">{{ plus_text|default('+') }}</button>
+    </div>
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`name` | name
+`value` | value
+`class` | class
+`placeholder` | placeholder
+`type` | type
+`extra` | extra
+`minus_text` | minus text
+`plus_text` | plus text
 
 **usage:**
 ```twig
@@ -142,32 +153,57 @@ argument | description
 ```
 
 ### html.image ###
-What does the macro do?
+Render an `<img>`
 
 ```twig
-{% macro %}
-
+{% macro image(src, alt, class, extra, lazy, no_image) %}
+    {% set image_src = src ? src : no_image ? asset_url('images/no_image.png') : src %}
+    {% set loader = asset_url('images/loading.gif') %}
+    {% if lazy %}
+        <img src="{{ loader }}" data-src="{{ image_src }}" alt="{{ alt }}"{% if class %} class="{{ class }}{{ lazy ? ' lazy' : '' }}"{% endif %}{% if extra %} {{ extra|raw }}{% endif %}>
+    {% else %}
+        <img src="{{ image_src }}" alt="{{ alt }}"{% if class %} class="{{ class }}"{% endif %}{% if extra %} {{ extra|raw }}{% endif %}>
+    {% endif %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`src` | src
+`alt` | alt
+`class` | class
+`extra` | extra
+`lazy` | lazy
+`no_image` | no image
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ html.image(photo_url, item.photo_description, 'item-img', '', '', true) }}
 ```
 ### html.recursive_category ###
-What does the macro do?
+Renders a multi level caetgory list
 
 ```twig
-{% macro %}
-
+{% macro recursive_category(catID, level, limit) %}
+    {% set catparent = category(catID) %}
+    {% if limit == 0 or limit > level %}
+        <li{% if catparent.categories %} class="has-child"{% endif %}>
+            <a href="{{ catparent.url }}">{{ catparent.title }}</a>
+            {% if catparent.categories|length %}
+                <ul class="submenu level-{{ level|default(1) }}">
+                    {% for category in catparent.categories %}
+                        {{ _self.recursiveCategory(category.id, level > 0 ? level + 1 : 2) }}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endif %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`catID` | categhory ID
+`level` | level
+`limit` | limit
 
 **usage:**
 ```twig
@@ -178,135 +214,258 @@ argument | description
 Render theme specific blocks of code
 
 ### theme.text_snippet ###
-What does the macro do?
+Renders a text snippet
 
 ```twig
-{% macro %}
-
+{% macro text_snippet(name, raw) %}
+    {% if raw %}
+	    {{ global.theme.settings['text_' ~ name] }}
+    {% else %}
+        {{ global.theme.settings['text_' ~ name]|raw }}
+    {% endif %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`name` | bar
+`raw` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ theme.text_snippet('empty_basket') }}
 ```
 
 ### theme.sw_icon ###
-What does the macro do?
+Render a font Icon glyph
 
 ```twig
-{% macro %}
-
+{% macro sw_icon(name, text) %}
+    <i class="sw-icon-{{ name }}" aria-hidden="true"></i>
+    {% if text %}
+        <span class="show-for-sr">{{ text }}</span>
+    {% endif %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`name` | bar
+`text` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ theme.sw_icon('gift') }}
 ```
 
 ### theme.link_list ###
 What does the macro do?
 
 ```twig
-{% macro %}
-
+{% macro link_list(name, class, include_title) %}
+	{% set link_list = global.theme.settings['list_' ~ name] %}
+	{% if link_list and link_list.links %}
+		{% if include_title and link_list.title %}
+			<h4>
+				{{ link_list.title }}
+			</h4>
+		{% endif %}
+		<ul class="{{ class }}">
+			{% for link in link_list.links %}
+				<li>
+					<a href="{{ link.url }}">
+						{{ link.title }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`name` | bar
+`class` | bar
+`include_title` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ theme.link_list('footer', 'footer-list menu vertical medium-horizontal', 0) }}
 ```
 
 ### theme.errors ###
-What does the macro do?
+Renders an list of platform errors
 
 ```twig
-{% macro %}
-
+{% macro errors(errors) %}
+	{% if errors %}
+		<div class="{{ class|default('shopwired-info-message') }}" role="alert">
+			{% for error in errors %}
+				{% if not loop.first %}
+					<br>
+				{% endif %}
+				{{ error }}.
+			{% endfor %}
+		</div>
+	{% endif %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`errors` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ theme.errors(errors) }}
 ```
 
 ### theme.checkout_form_field ###
-What does the macro do?
+Render a checkout form field 
 
 ```twig
-{% macro %}
-
+{% macro checkout_form_field(name, field, labels, small, shipVal) %}
+    {% set required_array = global.theme.settings.checkout_phone_required ? ['phone'] : [] %}
+	<label class="checkout-field checkout-field-{{ name }} column large-{{ small ? '6' : '12' }}">
+        {% set label = labels|default(name|title) %}
+        {% set value = field.value|default(shipVal) %}
+        <span class="field-label">{{ label }}</span>
+		{% if field.readonly %}
+			<input type="text" value="{{ value }}" data-name="{{ name }}" readonly>
+		{% elseif field.options is defined %}
+			<select name="{{ field.name }}" data-name="{{ name }}"{% if field.required or name in required_array %} class="required"{% endif %}>
+				<option value="">Please select...</option>
+				{% for option in field.options %}
+					<option value="{{ option.id|default(option) }}"{% if option.id|default(option) == value %} selected="selected"{% endif %}>
+						{{ option.name|default(option) }}
+					</option>
+				{% endfor %}
+			</select>
+		{% else %}
+			<input type="text" name="{{ field.name }}" value="{{ value }}" data-name="{{ name }}"{% if field.required  or name in required_array %} class="required"{% endif %}>
+		{% endif %}
+	</label>
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`name` | bar
+`field` | bar
+`labels` | bar
+`small` | bar
+`shipVal` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{# Render billing fields #}
+{% for name, label in labels %}
+	{% set field = checkout.billing[name] %}
+	{% set shipVal = checkout.shipping[name].value %}
+	{% set size = name in small ? 1 : 0 %}
+	{{ theme.checkout_form_field(name, field, label, size, shipVal) }}
+{% endfor %}
 ```
 
 ### theme.form ###
 What does the macro do?
 
 ```twig
-{% macro %}
+{% macro form(fields, errors, labels, button_text, is_account_form) %}
+	{{ _self.errors(errors) }}
+	<form action="{{ global.current_url }}" method="post" class="form-with-validation">
+		{% for name, field in fields %}
+			{% set label = labels[name]|default(name|title) %}
+			{% set type = field.type|default('text') %}
 
+            {% if type == 'boolean' %}
+                <div class="row column">
+                    <input id="{{ field.name }}" type="checkbox" name="{{ field.name }}">
+                    <label for="{{ field.name }}">{{ label }}</label>
+                </div>
+            {% else %}
+    			<label>
+    				<span class="field-label">{{ label }}</span>
+    				{% if field.values is defined %}
+    					<select name="{{ field.name }}"{% if field.required %} class="required"{% endif %}>
+    						{% if name == 'source' or name == 'rating' %}
+    							<option value="">Please select...</option>
+    						{% endif %}
+    						{% for value, label in field.values %}
+    							<option value="{{ value }}"{% if value == field.value %} selected="selected"{% endif %}>
+    								{{ label }}
+    							</option>
+    						{% endfor %}
+    					</select>
+    				{% elseif type == 'boolean' %}
+    					<br>
+    					<input type="checkbox" name="{{ field.name }}" value="1"{% if field.value %} checked="checked"{% endif %}>
+    				{% elseif type == 'hidden' %}
+    					<input type="hidden" name="{{ field.name }}" value="{{ field.value }}">
+    					{% if name == 'amount' %}
+    						<br>
+    						{{ format_price(field.value) }}
+    					{% endif %}
+    				{% elseif name == 'message' or name == 'content' %}
+    					<textarea name="{{ field.name }}" cols="30" rows="3"{% if field.required %} class="required"{% endif %}>{{ field.value }}</textarea>
+    				{% else %}
+    					<input type="text" name="{{ field.name }}" value="{{ field.value }}"{% if field.required %} class="required"{% endif %}{% if is_account_form and (name == 'email_address' or type == 'password') %} autocomplete="off"{% endif %}>
+    				{% endif %}
+    			</label>
+            {% endif %}
+		{% endfor %}
+		<input type="text" name="{{ global.honeypot_field_name }}" class="hide" autocomplete="off">
+		<button type="submit" class="button">
+			{{ button_text|default('Submit') }}
+		</button>
+	</form>
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`fields` | bar
+`errors` | bar
+`labels` | bar
+`button_text` | bar
+`is_account_form` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{# Render account form #}
+{{ theme.form(form_fields, errors, labels, button_text, true) }}
 ```
 
 ### theme.info_message ###
-What does the macro do?
+Renders platform information message
 
 ```twig
-{% macro %}
-
+{% macro info_message(class) %}
+    {% if global.info_message %}
+        <div class="{{ class|default('shopwired-info-message') }}">
+            {{ global.info_message|raw }}
+        </div>
+    {% endif %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`class` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ theme.info_message(errors) }}
 ```
 
 ### theme.custom_form ###
-What does the macro do?
+Render a custom form
 
 ```twig
-{% macro %}
-
+{% macro custom_form(settings) %}
+    <input type="hidden" name="custom_form" value="1">
+    {% for name, value in settings %}
+        <input type="hidden" name="custom_form_{{ name }}" value="{{ value }}">
+    {% endfor %}
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`settings` | bar
 
 **usage:**
 ```twig
@@ -317,49 +476,98 @@ argument | description
 What does the macro do?
 
 ```twig
-{% macro %}
-
+{% macro honeypot(class) %}
+    <input type="text" name="{{ global.honeypot_field_name }}" autocomplete="off" class="{{ class|default('shopwired-form-field') }}">
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`class` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ theme.honeypot('hide') }}
 ```
 
 ### theme.share_buttons ###
-What does the macro do?
+Render social media share buttons
 
 ```twig
-{% macro %}
-
+{% macro share_buttons(url, title, description, photo, icon, class) %}
+    <ul class="{{ class|default('menu simple') }}">
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ url|url_encode }}&t={{ title|url_encode }}"
+               class="facebook"
+               target="_blank">
+               {% if icon %}
+                   {{ _self.fa('facebook') }}
+               {% endif %}
+               <span class="{{ icon ? 'show-for-sr' : 'inner' }}">
+                   Share on Facebook
+               </span>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/home/?status={{ (title ~ ' (' ~ url ~ ')')|url_encode }}"
+               class="twitter"
+               target="_blank">
+               {% if icon %}
+                   {{ _self.fa('twitter') }}
+               {% endif %}
+                <span class="{{ icon ? 'show-for-sr' : 'inner' }}">
+                    Share on Twitter
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="https://pinterest.com/pin/create/button/?url={{ url|url_encode }}&media={{ photo|url_encode }}&description={{ description|striptags|slice(0, 500)|trim|url_encode }}"
+               class="pinterest"
+               target="_blank">
+               {% if icon %}
+                   {{ _self.fa('pinterest') }}
+               {% endif %}
+               <span class="{{ icon ? 'show-for-sr' : 'inner' }}">
+                   Pin It
+               </span>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url={{ url|url_encode }}"
+               class="google"
+               target="_blank">
+               {% if icon %}
+                   {{ _self.fa('google-plus') }}
+               {% endif %}
+               <span class="{{ icon ? 'show-for-sr' : 'inner' }}">
+                   Share on Google+
+               </span>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.tumblr.com/share/link?url={{ url|url_encode }}&name={{ title|url_encode }}"
+               class="tumblr"
+               target="_blank">
+               {% if icon %}
+                   {{ _self.fa('tumblr') }}
+               {% endif %}
+               <span class="{{ icon ? 'show-for-sr' : 'inner' }}">
+                   Share on Tumblr
+               </span>
+            </a>
+        </li>
+    </ul>
 {% endmacro %}
 ```
 argument | description
 --- | ---
-`foo` | bar
+`url` | bar
+`title` | bar
+`description` | bar
+`photo` | bar
+`icon` | bar
+`class` | bar
 
 **usage:**
 ```twig
-{{ html.script }}
-```
-
-### macro.name ###
-What does the macro do?
-
-```twig
-{% macro %}
-
-{% endmacro %}
-```
-argument | description
---- | ---
-`foo` | bar
-
-**usage:**
-```twig
-{{ html.script }}
+{{ theme.share_buttons(global.current_url, post.title, post.content, post.thumbnail.image_url, true, 'social-menu menu simple') }}
 ```
