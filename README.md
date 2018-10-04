@@ -99,6 +99,12 @@ Examples of generic sliders include Home page 'featured products' and product pa
 
 The className `.product-slider` is used to display a collection as a slider.
 
+A slider can be created using `partials/items.twig` by passing an array to the `items` variable and `''product-slider'` to `classes`:
+```twig
+<div class="row column">
+    {% include 'partials/items.twig' with { 'items': featured_products, 'item_type': 'product', 'classes': 'product-slider', 'button' : true } %}
+</div>
+```
 ### Product thumbnails ###
 styled in `/assets/scss/_components_product.scss`.
 
