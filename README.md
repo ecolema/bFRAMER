@@ -119,6 +119,10 @@ Combined [Foundation's label element](https://foundation.zurb.com/sites/docs/lab
 * `.three-for-two`
 * `.new`
 
+```html
+<span class="label primary two-for-one">2 for 1</span>
+```
+
 ### Modal dialogs ###
 Modal dialogs use [Foundation's Reveal component](https://foundation.zurb.com/sites/docs/reveal.html).
 
@@ -226,32 +230,36 @@ styled in `/assets/scss/_components_product.scss`.
 ### Product description tabs ###
 styled in `/assets/scss/_components_product.scss`.
 
+Uses [Foundation's Tabs component](https://foundation.zurb.com/sites/docs/tabs.html).
+
 ### Product tiles ###
-Product boxes displayed in product collections. By default product boxes use Foundation's Card component, contain a general ClassName `.item-box` and a more specific className `.product-box`. 
+Product boxes displayed in product collections. By default product boxes use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html), contain a general ClassName `.item-box` and a more specific className `.product-box`. 
 
 ### Category tiles ###
-Category boxes displayed in category collections. By default category boxes use Foundation's Card component, contain a general ClassName `.item-box` and a more specific className `.category-box`. 
+Category boxes displayed in category collections. By default category boxes use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html), contain a general ClassName `.item-box` and a more specific className `.category-box`. 
 
 ### Article tiles ###
-Display individual blog posts.
+Display individual blog posts. By default article boxes use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html).
 
 ### Recent product tiles ###
 Display recently viewed products, contain a general ClassName `.item-box` and a more specific className `.recent-box`.
 
 ### Video tiles ###
+Displays videos from the `videos` collection on the '/videos' page.
 
+By default video boxes use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html) and [Foundation's Responsive Embed component](https://foundation.zurb.com/sites/docs/responsive-embed.html).
 
 ### Gallery tiles ###
+Displays individual gallery objects.
+
+By default gallery tiles use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html), contain a general ClassName `.item-box` and a more specific className `.gallery-box`. 
 
 ### Gallery image tiles ###
+Displays individual gallery images from a galley object.
+
+By default gallery image tiles use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html), contain a general ClassName `.item-box` and a more specific className `.gallery_photo-box`.
 
 ### Stockiest tiles ###
+Displays individual stockists.
 
-
-
-
-
-
-
-
-
+By default stockist tiles use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html) and contain a className `.stockist-box`.
