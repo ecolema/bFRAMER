@@ -108,8 +108,8 @@ A slider can be created using `partials/items.twig` by passing an array to the `
 ### Product thumbnails ###
 styled in `/assets/scss/_components_product.scss`.
 
-### Star raiting ###
-Combines a twig `for` loop with the macro `sw_icon` to output star icons to represent a raiting.
+### Star rating ###
+Combines a twig `for` loop with the macro `sw_icon` to output star icons to represent a rating.
 
 ### Product labels ###
 Product labels denote whether a product is 'new' or included in a volume discount such as '3 for 2' or '2 for 1'.
@@ -259,7 +259,7 @@ Displays individual gallery images from a galley object.
 
 By default gallery image tiles use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html), contain a general ClassName `.item-box` and a more specific className `.gallery_photo-box`.
 
-### Stockiest tiles ###
+### Stockists tiles ###
 Displays individual stockists.
 
 By default stockist tiles use [Foundation's Card component](https://foundation.zurb.com/sites/docs/card.html) and contain a className `.stockist-box`.
