@@ -433,7 +433,7 @@ argument | description
 ```
 
 ### theme.info_message ###
-Renders platform information message
+Renders platform information message `global.info_message`.
 
 ```twig
 {% macro info_message(class) %}
@@ -446,7 +446,7 @@ Renders platform information message
 ```
 argument | description
 --- | ---
-`class` | bar
+`class` | className, default is `.shopwired-info-message`
 
 **usage:**
 ```twig
@@ -454,7 +454,7 @@ argument | description
 ```
 
 ### theme.custom_form ###
-Render a custom form
+Render a form which submits to a specified email address.
 
 ```twig
 {% macro custom_form(settings) %}
@@ -466,15 +466,21 @@ Render a custom form
 ```
 argument | description
 --- | ---
-`settings` | bar
+`settings` | array of hidden fields
 
 **usage:**
 ```twig
-{{ html.script }}
+{{ shopwired.custom_form({ 
+    'to_email': 'info@joesshoeshop.com', 
+    'from_email': 'info@joesshoeshop.com', 
+    'redirect_url': '/thanks', 
+    'subject': 'new website enquiry' 
+}) }}
 ```
 
 ### theme.honeypot ###
 What does the macro do?
+Adds an invisible field to your form (that only spambots can see) to trick them into revealing that they're spambots and not actual end-users.
 
 ```twig
 {% macro honeypot(class) %}
@@ -483,7 +489,7 @@ What does the macro do?
 ```
 argument | description
 --- | ---
-`class` | bar
+`class` | ClassName, default is `.shopwired-form-field`
 
 **usage:**
 ```twig
@@ -561,12 +567,12 @@ Render social media share buttons
 ```
 argument | description
 --- | ---
-`url` | bar
-`title` | bar
-`description` | bar
-`photo` | bar
-`icon` | bar
-`class` | bar
+`url` | absolute URL of shared content
+`title` | title of shared content
+`description` | optional description
+`photo` | absolute URL of shared content media
+`icon` | boolean to indicate if font icons should be rendered.
+`class` | className for parent `ul`
 
 **usage:**
 ```twig
