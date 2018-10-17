@@ -151,6 +151,23 @@ argument | description
 ```twig
 {{ html.script }}
 ```
+Include the following jQuery function to handle the toggle buttons:
+```js
+    $('.number-toggle').each(function() {
+        var valueElement = $(this).find('input'),
+            plus = $(this).find('.toggle-up'),
+            minus = $(this).find('.toggle-down');
+
+        function incrementValue(e){
+            e.preventDefault();
+            valueElement.val(Math.max(parseInt(valueElement.val()) + e.data.increment, 0));
+            return false;
+        }
+
+        plus.bind('click', {increment: 1}, incrementValue);
+        minus.bind('click', {increment: -1}, incrementValue);
+    });
+```
 
 ### html.image ###
 Render an `<img>`
