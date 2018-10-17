@@ -496,7 +496,6 @@ argument | description
 ```
 
 ### theme.honeypot ###
-What does the macro do?
 Adds an invisible field to your form (that only spambots can see) to trick them into revealing that they're spambots and not actual end-users.
 
 ```twig
