@@ -72,7 +72,7 @@ Default styling for checkbox and radio buttons are customised with a CSS only so
 ### Contact Form ###
 The contact form consists of form components and typically appears on the `/contact-us` page.
 
-Please add custom styles for the product form in `/assets/scss/_forms.scss` too.
+Please add custom styles for the contact form in `/assets/scss/_forms.scss` too.
 
 ## Components ##
 For specific UI components. This is where majority of theme styles are placed. UI components are often composed of Objects and Components.
