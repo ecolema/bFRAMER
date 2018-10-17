@@ -228,8 +228,8 @@ Renders a text snippet
 ```
 argument | description
 --- | ---
-`name` | bar
-`raw` | bar
+`name` | name of the text setting with `text_` omitted
+`raw` | optional - outputs the contents of the text snippet as raw HTML when true
 
 **usage:**
 ```twig
@@ -249,8 +249,8 @@ Render a font Icon glyph
 ```
 argument | description
 --- | ---
-`name` | bar
-`text` | bar
+`name` | icon name
+`text` | optional - screen reader text for accessibility
 
 **usage:**
 ```twig
@@ -283,9 +283,9 @@ What does the macro do?
 ```
 argument | description
 --- | ---
-`name` | bar
-`class` | bar
-`include_title` | bar
+`name` | name of the link list with `list_` omitted
+`class` | optional - class applied to outer `<ul>`
+`include_title` | optional - outputs the list's title as a heading before the `<ul>`
 
 **usage:**
 ```twig
@@ -311,7 +311,7 @@ Renders an list of platform errors
 ```
 argument | description
 --- | ---
-`errors` | bar
+`errors` | array of error message text
 
 **usage:**
 ```twig
@@ -347,11 +347,11 @@ Render a checkout form field
 ```
 argument | description
 --- | ---
-`name` | bar
-`field` | bar
-`labels` | bar
-`small` | bar
-`shipVal` | bar
+`name` | field name
+`field` | checkout field object - e.g. `checkout.billing[field-name]`
+`labels` | array of text labels
+`small` | array of field names to be rendered at half of the screen width
+`shipVal` | prepopulated field values (from logged in users) to be transposed into the corresponding billing fields
 
 **usage:**
 ```twig
@@ -365,7 +365,7 @@ argument | description
 ```
 
 ### theme.form ###
-What does the macro do?
+Renders a form using the `form_fields` object.
 
 ```twig
 {% macro form(fields, errors, labels, button_text, is_account_form) %}
@@ -420,11 +420,11 @@ What does the macro do?
 ```
 argument | description
 --- | ---
-`fields` | bar
-`errors` | bar
-`labels` | bar
-`button_text` | bar
-`is_account_form` | bar
+`fields` | array of form fields
+`errors` | array of error messages
+`labels` | array of field labels (use to override defaults)
+`button_text` | text for submit button
+`is_account_form` | renders a password field if `true`
 
 **usage:**
 ```twig
