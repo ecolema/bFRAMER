@@ -274,6 +274,21 @@ argument | description
 {{ theme.sw_icon('gift') }}
 ```
 
+### theme.filter_hex ###
+Remove a hexidecimal value from a text string.
+
+```twig
+{% macro filter_hex(value) %}
+    {{ value|split(':#')[0] }}
+{% endmacro %}
+```
+
+**usage**
+```twig
+{% set value = 'Black:#000000' %}
+{{ theme.filter_hex(value) }}
+```
+
 ### theme.link_list ###
 What does the macro do?
 
