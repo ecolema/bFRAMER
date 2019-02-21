@@ -232,14 +232,20 @@ argument | description
 Render theme specific blocks of code
 
 ### theme.text_snippet ###
-Renders a text snippet
+Renders a text snippet. 'Short codes' are replaced by dynamic values.
 
 ```twig
 {% macro text_snippet(name, raw) %}
+    {% set short_codes = {
+        '[[YEAR]]': 'now'|date('Y'),
+        '[[EMAIL]]': global.business.email,
+        '[[PHONE]]': global.business.phone,
+        '[[ADDRESS]]': global.business.address
+    } %}
     {% if raw %}
-		{{ global.theme.settings['text_' ~ name] }}
+	    {{ global.theme.settings['text_' ~ name]|replace(short_codes) }}
     {% else %}
-        {{ global.theme.settings['text_' ~ name]|raw }}
+        {{ global.theme.settings['text_' ~ name]|replace(short_codes)|raw }}
     {% endif %}
 {% endmacro %}
 ```
@@ -272,6 +278,30 @@ argument | description
 **usage:**
 ```twig
 {{ theme.sw_icon('gift') }}
+```
+
+### theme.product_label ###
+Render product labels
+
+```twig
+{% macro product_label(name) %}
+    {% if name == '3 for 2' %}
+        <div class="label primary three-for-two"><span>3</span> For <span>2</span></div>
+    {% elseif name == '2 for 1' %}
+        <div class="label primary two-for-one"><span>2</span> For <span>1</span></div>
+    {% elseif name == 'new' %}
+        <div class="label secondary new">New</div>
+    {% endif %}
+{% endmacro %}
+```
+
+argument | description
+--- | ---
+`name` | '3 for 2', '2 for 1' or 'new'
+
+**usage**
+```twig
+{{ theme.product_label('2 for 1') }}
 ```
 
 ### theme.filter_hex ###
